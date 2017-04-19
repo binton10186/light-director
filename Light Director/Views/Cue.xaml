@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="LightDirector.Cue"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:converters="clr-namespace:LightDirector.Infrastructure.Converters;assembly=LightDirector.Infrastructure"
+             xmlns:local="clr-namespace:LightDirector"
+             xmlns:tk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             Height="240" Width="130" BorderBrush="#cccccc" BorderThickness="1"
+             d:DataContext="local:CueViewModel" Background="{Binding Background}">
+   <UserControl.Resources>
+      <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+   </UserControl.Resources>
+   <Grid>
+      <StackPanel Margin="2">
+         <TextBox Text="{Binding Name, Mode=TwoWay}" Foreground="White" Background="Transparent" BorderThickness="0"/>
+         <Grid>
+            <Grid.RowDefinitions>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="0.6*"/>
+               <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Foreground="White">Left Screen</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding LeftVideoFileName}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Foreground="White">Center Screen</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CenterVideoFileName}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Foreground="White">Right Screen</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding RightVideoFileName}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Foreground="White">Audio</Label>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding AudioFileName}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Foreground="White">Volume</Label>
+            <tk:ShortUpDown Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="10" Value="{Binding Volume, Mode=TwoWay}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Foreground="White">Audio Fade</Label>
+            <tk:DoubleUpDown Grid.Row="5" Grid.Column="1" Minimum="0" Maximum="60" Value="{Binding AudioFadeout, Mode=TwoWay}"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Foreground="White">Fade In</Label>
+            <tk:DoubleUpDown Grid.Row="6" Grid.Column="1" Minimum="0" Maximum="60" Value="{Binding FadeIn, Mode=TwoWay}"/>
+
+            <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" Visibility="{Binding ReferenceCueVisibility}" Content="{Binding ReferenceCue}" ToolTip="{Binding ReferenceCue}"/>
+         </Grid>
+      </StackPanel>
+   </Grid>
+</UserControl>

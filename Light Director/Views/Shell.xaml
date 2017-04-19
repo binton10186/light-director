@@ -1,0 +1,23 @@
+﻿<Window x:Class="LightDirector.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lightDirector="clr-namespace:LightDirector"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:views="clr-namespace:LightDirector.Views"
+        xmlns:about="clr-namespace:LightDirector.Modules.About.Views;assembly=LightDirector.Modules.About"
+        xmlns:infrastructure="clr-namespace:LightDirector.Infrastructure;assembly=LightDirector.Infrastructure"
+        Title="Lighting Director" MinHeight="350" MinWidth="525" WindowState="Maximized" prism:ViewModelLocator.AutoWireViewModel="True">
+
+   <Grid>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="25"/>
+         <RowDefinition/>
+      </Grid.RowDefinitions>
+      <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.Menu}"/>
+
+      <lightDirector:LightingPlanView Grid.Row="1" 
+                                        DataContext="{Binding LightingPlan}" 
+                                        Visibility="{Binding TargetNullValue=Collapsed}"/>
+   </Grid>
+</Window>
