@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Modules/LightDirector.Modules.About/obj/x86/Debug
+/LightDirectoryClient
+/LightDirectorMessages/obj/x86/Debug
+/LightDirector.Modules.Toolbar/obj/x86/Debug
+/LightDirector.Modules.TimeLine/obj/x86/Debug
+/LightDirector.Modules.Menus/obj/x86/Debug
+/LightDirector.Modules.Lights/obj/x86/Debug
+/LightDirector.Modules.Cues/obj/x86/Debug
