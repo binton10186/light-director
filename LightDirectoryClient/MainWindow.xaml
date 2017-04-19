@@ -1,0 +1,13 @@
+﻿<Window x:Class="LightDirectoryClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LightDirectoryClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Background="Black" >
+    <Grid>
+      <MediaElement Volume="0" LoadedBehavior="Play" Source="{Binding Filename1}" Visibility="{Binding Visibility1}" MediaOpened="Screen1_Loaded" Panel.ZIndex="{Binding Screen1ZIndex}"/>
+      <MediaElement Volume="0" LoadedBehavior="Play" Source="{Binding Filename2}" Visibility="{Binding Visibility2}" MediaOpened="Screen2_Loaded" Panel.ZIndex="{Binding Screen2ZIndex}"/>
+   </Grid>
+</Window>
