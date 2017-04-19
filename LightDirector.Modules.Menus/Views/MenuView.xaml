@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="LightDirector.Modules.Menus.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LightDirector.Modules.Menus.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:infrastructure="clr-namespace:LightDirector.Infrastructure;assembly=LightDirector.Infrastructure"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" prism:ViewModelLocator.AutoWireViewModel="True">
+   <i:Interaction.Triggers>
+      <prism:InteractionRequestTrigger SourceObject="{Binding ShowAboutRequest, Mode=OneWay}">
+         <prism:PopupWindowAction IsModal="True">
+            <prism:PopupWindowAction.WindowStyle>
+               <Style TargetType="Window">
+                  <Setter Property="ShowInTaskbar" Value="False"/>
+                  <Setter Property="ResizeMode" Value="NoResize"/>
+                  <Setter Property="ShowActivated" Value="True"/>
+                  <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
+                  <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+               </Style>
+            </prism:PopupWindowAction.WindowStyle>
+            <prism:PopupWindowAction.WindowContent>
+               <infrastructure:PopupContentControl prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.About}"/>
+            </prism:PopupWindowAction.WindowContent>
+         </prism:PopupWindowAction>
+      </prism:InteractionRequestTrigger>
+   </i:Interaction.Triggers>
+   <Menu>
+      <MenuItem Header="_File">
+         <MenuItem Header="_New" Command="{Binding NewLightingPlan}"/>
+         <MenuItem Header="_Open..." Command="{Binding OpenLightingPlan}"/>
+         <Separator/>
+         <MenuItem Header="S_ave As..." Command="{Binding SaveAs}"/>
+         <Separator/>
+         <MenuItem Header="_Close" Command="{Binding CloseLightingPlan}"/>
+         <Separator/>
+         <MenuItem Header="E_xit" Command="{Binding Exit}"/>
+      </MenuItem>
+      <MenuItem Header="_View">
+         <MenuItem Header="Stage Target" Command="{Binding ShowStageTarget}"/>
+      </MenuItem>
+      <MenuItem Header="_Help">
+         <MenuItem Header="About..." Command="{Binding ShowAbout}"/>
+      </MenuItem>
+   </Menu>
+</UserControl>
