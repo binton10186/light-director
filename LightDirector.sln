@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector", "LightDirector\LightDirector.csproj", "{B638F30B-E4D9-4EF6-A2C4-2A301FC340F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirectorClient", "LightDirectoryClient\LightDirectorClient.csproj", "{B0F61078-7F2C-42B8-849F-5A8BD098332E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirectorMessages", "LightDirectorMessages\LightDirectorMessages.csproj", "{294B7D72-4C95-4F31-BA69-B115E9D41078}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.About", "Modules\LightDirector.Modules.About\LightDirector.Modules.About.csproj", "{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.Lights", "LightDirector.Modules.Lights\LightDirector.Modules.Lights.csproj", "{28B3EC04-530B-4B38-870A-27A208785E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Infrastructure", "LightDirector.Infrastructure\LightDirector.Infrastructure.csproj", "{E8152610-8025-4B54-9E75-55C1C9BB8196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.TimeLine", "LightDirector.Modules.TimeLine\LightDirector.Modules.TimeLine.csproj", "{F0E59945-2EA7-46B0-B17C-EBA42744F465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.Cues", "LightDirector.Modules.Cues\LightDirector.Modules.Cues.csproj", "{60452405-82A5-4D40-B8A3-58E0DDE08065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.Toolbar", "LightDirector.Modules.Toolbar\LightDirector.Modules.Toolbar.csproj", "{B15213D5-18A9-4A41-AE79-E8675ADA3DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.Menus", "LightDirector.Modules.Menus\LightDirector.Modules.Menus.csproj", "{F565489D-218B-461D-841C-4137A58B88A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightDirector.Modules.Viewer", "LightDirector.Modules.Viewer\LightDirector.Modules.Viewer.csproj", "{EE11D8D9-708B-47A7-8588-103F111845AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B638F30B-E4D9-4EF6-A2C4-2A301FC340F5}.Debug|x86.ActiveCfg = Debug|x86
+		{B638F30B-E4D9-4EF6-A2C4-2A301FC340F5}.Debug|x86.Build.0 = Debug|x86
+		{B638F30B-E4D9-4EF6-A2C4-2A301FC340F5}.Release|x86.ActiveCfg = Release|x86
+		{B638F30B-E4D9-4EF6-A2C4-2A301FC340F5}.Release|x86.Build.0 = Release|x86
+		{B0F61078-7F2C-42B8-849F-5A8BD098332E}.Debug|x86.ActiveCfg = Debug|x86
+		{B0F61078-7F2C-42B8-849F-5A8BD098332E}.Debug|x86.Build.0 = Debug|x86
+		{B0F61078-7F2C-42B8-849F-5A8BD098332E}.Release|x86.ActiveCfg = Release|x86
+		{B0F61078-7F2C-42B8-849F-5A8BD098332E}.Release|x86.Build.0 = Release|x86
+		{294B7D72-4C95-4F31-BA69-B115E9D41078}.Debug|x86.ActiveCfg = Debug|x86
+		{294B7D72-4C95-4F31-BA69-B115E9D41078}.Debug|x86.Build.0 = Debug|x86
+		{294B7D72-4C95-4F31-BA69-B115E9D41078}.Release|x86.ActiveCfg = Release|x86
+		{294B7D72-4C95-4F31-BA69-B115E9D41078}.Release|x86.Build.0 = Release|x86
+		{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9}.Debug|x86.ActiveCfg = Debug|x86
+		{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9}.Debug|x86.Build.0 = Debug|x86
+		{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9}.Release|x86.ActiveCfg = Release|x86
+		{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9}.Release|x86.Build.0 = Release|x86
+		{28B3EC04-530B-4B38-870A-27A208785E2A}.Debug|x86.ActiveCfg = Debug|x86
+		{28B3EC04-530B-4B38-870A-27A208785E2A}.Debug|x86.Build.0 = Debug|x86
+		{28B3EC04-530B-4B38-870A-27A208785E2A}.Release|x86.ActiveCfg = Release|x86
+		{28B3EC04-530B-4B38-870A-27A208785E2A}.Release|x86.Build.0 = Release|x86
+		{E8152610-8025-4B54-9E75-55C1C9BB8196}.Debug|x86.ActiveCfg = Debug|x86
+		{E8152610-8025-4B54-9E75-55C1C9BB8196}.Debug|x86.Build.0 = Debug|x86
+		{E8152610-8025-4B54-9E75-55C1C9BB8196}.Release|x86.ActiveCfg = Release|x86
+		{E8152610-8025-4B54-9E75-55C1C9BB8196}.Release|x86.Build.0 = Release|x86
+		{F0E59945-2EA7-46B0-B17C-EBA42744F465}.Debug|x86.ActiveCfg = Debug|x86
+		{F0E59945-2EA7-46B0-B17C-EBA42744F465}.Debug|x86.Build.0 = Debug|x86
+		{F0E59945-2EA7-46B0-B17C-EBA42744F465}.Release|x86.ActiveCfg = Release|x86
+		{F0E59945-2EA7-46B0-B17C-EBA42744F465}.Release|x86.Build.0 = Release|x86
+		{60452405-82A5-4D40-B8A3-58E0DDE08065}.Debug|x86.ActiveCfg = Debug|x86
+		{60452405-82A5-4D40-B8A3-58E0DDE08065}.Debug|x86.Build.0 = Debug|x86
+		{60452405-82A5-4D40-B8A3-58E0DDE08065}.Release|x86.ActiveCfg = Release|x86
+		{60452405-82A5-4D40-B8A3-58E0DDE08065}.Release|x86.Build.0 = Release|x86
+		{B15213D5-18A9-4A41-AE79-E8675ADA3DAB}.Debug|x86.ActiveCfg = Debug|x86
+		{B15213D5-18A9-4A41-AE79-E8675ADA3DAB}.Debug|x86.Build.0 = Debug|x86
+		{B15213D5-18A9-4A41-AE79-E8675ADA3DAB}.Release|x86.ActiveCfg = Release|x86
+		{B15213D5-18A9-4A41-AE79-E8675ADA3DAB}.Release|x86.Build.0 = Release|x86
+		{F565489D-218B-461D-841C-4137A58B88A7}.Debug|x86.ActiveCfg = Debug|x86
+		{F565489D-218B-461D-841C-4137A58B88A7}.Debug|x86.Build.0 = Debug|x86
+		{F565489D-218B-461D-841C-4137A58B88A7}.Release|x86.ActiveCfg = Release|x86
+		{F565489D-218B-461D-841C-4137A58B88A7}.Release|x86.Build.0 = Release|x86
+		{EE11D8D9-708B-47A7-8588-103F111845AA}.Debug|x86.ActiveCfg = Debug|x86
+		{EE11D8D9-708B-47A7-8588-103F111845AA}.Debug|x86.Build.0 = Debug|x86
+		{EE11D8D9-708B-47A7-8588-103F111845AA}.Release|x86.ActiveCfg = Release|x86
+		{EE11D8D9-708B-47A7-8588-103F111845AA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A30996A2-D4AD-405A-AAA6-9A0A6D374EB9} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{28B3EC04-530B-4B38-870A-27A208785E2A} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{F0E59945-2EA7-46B0-B17C-EBA42744F465} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{60452405-82A5-4D40-B8A3-58E0DDE08065} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{B15213D5-18A9-4A41-AE79-E8675ADA3DAB} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{F565489D-218B-461D-841C-4137A58B88A7} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+		{EE11D8D9-708B-47A7-8588-103F111845AA} = {1BF0D204-ADF1-45E0-9F44-4A124CAD29F0}
+	EndGlobalSection
+EndGlobal
