@@ -1,0 +1,104 @@
+﻿<html>
+<head>
+
+   <script src="/js/Three.js"></script>
+   <script src="/js/THREEx.WindowResize.js"></script>
+   <script src="/js/stats.min.js"></script>
+
+</head>
+
+
+<body>
+   <script>
+      var lights = {};
+      var stats = new Stats();
+      stats.showPanel(0);
+      document.body.appendChild(stats.dom);
+
+      var scene = new THREE.Scene();
+
+      // set the view size in pixels (custom or according to window size)
+      // var SCREEN_WIDTH = 400, SCREEN_HEIGHT = 300;
+      var SCREEN_WIDTH = window.innerWidth - 20, SCREEN_HEIGHT = window.innerHeight - 20;
+      // camera attributes
+      var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
+      // set up camera
+      camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+      // add the camera to the scene
+      scene.add(camera);
+      // the camera defaults to position (0,0,0)
+      // 	so pull it back (z = 400) and up (y = 100) and set the angle towards the scene origin
+      camera.position.set(0, 150, 400);
+      camera.lookAt(scene.position);
+
+      var renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.shadowMapEnabled = false;
+
+      renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+      renderer.setClearColor(0x000000);
+      document.body.appendChild(renderer.domElement);
+
+      THREEx.WindowResize(renderer, camera);
+      
+      var sphereGeometry = new THREE.CubeGeometry(50, 50, 50);
+      // use a "lambert" material rather than "basic" for realistic lighting.
+      //   (don't forget to add (at least one) light!)
+      var sphereMaterial = new THREE.MeshPhongMaterial({ color: 0x8888ff });
+      var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      sphere.position.set(100, 50, -50);
+      sphere.castShadow = false;
+      scene.add(sphere);
+
+      var planeGeometry = new THREE.PlaneGeometry(1000, 1000, 100, 100);
+      var planeMaterial = new THREE.MeshLambertMaterial({ color: 0x111111, side: THREE.DoubleSide });
+      var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+      plane.position.set(-0.5, 0, 0);
+      plane.rotation.x = Math.PI / 2;
+      plane.castShadow = false;
+      scene.add(plane);
+
+      function render() {
+         requestAnimationFrame(render);
+
+         stats.begin();
+         renderer.render(scene, camera);
+         stats.end();         
+      }
+
+      render();
+
+      function addLight(id, x, y, z) {
+         console.log("adding light at " + x + ", " + y + ", " + z);
+         var light = new THREE.SpotLight(0xffffff, 0);
+         light.castShadow = false;
+         light.position.set(x, y, z);
+         light.target.position.set(x, 0, z);
+         scene.add(light);
+
+         console.log(light.color.r);
+         console.log(light.color.g);
+         console.log(light.color.b);
+
+         lights[id] = light;
+
+         planeMaterial.needsUpdate = true;
+         sphereMaterial.needsUpdate = true;
+      }
+
+      function updateColor(id, red, green, blue) {         
+         var light = lights[id];
+         light.color.setRGB(red, green, blue);
+      }
+
+      function updatePosition(id, x, y, z) {
+         var light = lights[id];
+         light.position.set(x, y, z);
+      }
+
+      function updateBrightness(id, brightness) {
+         var light = lights[id];
+         light.intensity = brightness;
+      }
+   </script>
+</body>
+</html>
