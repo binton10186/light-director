@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="LightDirector.Modules.Lights.Views.Light"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LightDirector.Modules.Lights.Views"
+             xmlns:vm="clr-namespace:LightDirector.Modules.Lights.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="300" Margin="2" BorderThickness="1" 
+             BorderBrush="white"  Background="#cccccc">
+    <UserControl.Resources>
+      <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter"></BooleanToVisibilityConverter>
+      <DataTemplate DataType="{x:Type vm:DmxChannelViewModel}">
+         <local:DmxChannelView/>
+      </DataTemplate> 
+   </UserControl.Resources>
+   <Expander Name="expander">
+      <Expander.Header>
+         <Grid HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=expander}">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*"/>
+               <ColumnDefinition Width="40"/>
+               <ColumnDefinition Width="28"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding Name, Mode=TwoWay}" Foreground="White" Background="Transparent" BorderThickness="0"/>
+            <Rectangle Grid.Column="1" Width="40" Height="20" Stroke="Black" StrokeThickness="1">
+               <Rectangle.Fill>
+                  <SolidColorBrush Color="{Binding Color}"/>
+               </Rectangle.Fill>
+            </Rectangle>
+            <TextBox Background="Transparent" BorderThickness="0" Grid.Column="1" Text="{Binding Brightness, Mode=TwoWay}" HorizontalAlignment="Center"/>
+         </Grid>
+      </Expander.Header>
+      <Expander.Content>
+         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+               <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition/>
+               <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0">Height</TextBlock>
+            <xctk:DoubleUpDown Grid.Row="0" Grid.Column="1" Value="{Binding Height}"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0">X</TextBlock>
+            <xctk:DoubleUpDown Grid.Row="1" Grid.Column="1" Value="{Binding X}"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0">Z</TextBlock>
+            <xctk:DoubleUpDown Grid.Row="2" Grid.Column="1" Value="{Binding Z}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0">Pan</TextBlock>
+            <Grid Grid.Row="3" Grid.Column="1">
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition Width="25"/>
+               </Grid.ColumnDefinitions>
+               <xctk:IntegerUpDown Grid.Column="0" Value="{Binding Rotation, Mode=TwoWay}" Minimum="{Binding MinimumPan}" Maximum="{Binding MaximumPan}"/>
+               <ToggleButton Grid.Column="1" Command="{Binding ToggleStageSet}"/>
+            </Grid>
+            
+            <TextBlock Grid.Row="4" Grid.Column="0">Tilt</TextBlock>
+            <xctk:IntegerUpDown Grid.Row="4" Grid.Column="1" Value="{Binding Incline, Mode=TwoWay}" Minimum="{Binding MinimumTilt}" Maximum="{Binding MaximumTilt}"/>            
+
+            <TextBlock Grid.Row="5" Grid.Column="0">Brightness %</TextBlock>
+            <xctk:IntegerUpDown Grid.Row="5" Grid.Column="1" Value="{Binding Brightness}" Maximum="100" Minimum="0" 
+                                Visibility="{Binding HasBrightnessControl, Converter={StaticResource boolToVisibilityConverter}}"/>
+
+            <TextBlock Grid.Row="6" Grid.Column="0">Color</TextBlock>
+            <xctk:ColorPicker Grid.Row="6" Grid.Column="1" SelectedColor="{Binding Color}"
+                              Visibility="{Binding HasColorControl, Converter={StaticResource boolToVisibilityConverter}}"/>
+
+            <TextBlock Grid.Row="7" Grid.Column="0">Channel</TextBlock>
+            <xctk:IntegerUpDown Grid.Row="7" Grid.Column="1" Maximum="512" Minimum="0" Value="{Binding Channel}"/>
+
+            <ItemsControl Grid.Row="8" Grid.ColumnSpan="2"  ItemsSource="{Binding DmxChannels}"/>
+         </Grid>
+      </Expander.Content>
+   </Expander>
+</UserControl>
